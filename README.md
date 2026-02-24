@@ -22,6 +22,7 @@ Throughout this course, I focused on:
 - Homework 1 – Commission Calculator
 - Data Validation
 - Text To Speech
+- Student List
 
 ### Technologies Used
 - JavaScript

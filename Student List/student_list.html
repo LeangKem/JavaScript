@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student List 2 - Management</title>
+
+    <link rel="stylesheet" href="css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script src="js/student.js"></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <h3>Student List</h3>
+      <hr />
+
+      <ul class="breadcrumb">
+        <li class="breadcrumb-item active">Student List</li>
+        <li class="breadcrumb-item">
+          <a href="student_list2.html">Student List 2</a>
+        </li>
+        <li class="breadcrumb-item">
+          <a href="student_list3.html">Student List 3</a>
+        </li>
+      </ul>
+
+      <table id="myTable" class="table table-bordered table-hover">
+        <thead class="table-dark">
+          <tr>
+            <th class="text-center">Student Code</th>
+            <th class="text-center">No</th>
+            <th>
+              <div class="d-flex justify-content-between">
+                <div>Full Name</div>
+                <div>[Sex]</div>
+              </div>
+            </th>
+            <th class="text-center">Contact</th>
+            <th class="text-center">On/Off</th>
+            <th class="text-center">Delete</th>
+            <th class="text-center">Edit</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <script src="js/student_list.js"></script>
+  </body>
+</html>

@@ -3,7 +3,7 @@ const tableBody = document.getElementById("tableBody");
 const statusMsg = document.getElementById("statusMsg");
 const loaderOverlay = document.getElementById("loader-overlay");
 
-const apiUrl = "http://universities.hipolabs.com/search?country=Cambodia";
+const apiUrl = "https://universities.hipolabs.com/search?country=Cambodia";
 
 showBtn.addEventListener("click", async () => {
   // 1. Reset table and SHOW the Blur Overlay
@@ -14,6 +14,12 @@ showBtn.addEventListener("click", async () => {
   try {
     // 2. Fetch data
     const response = await fetch(apiUrl);
+
+    // Check if the response is okay (status 200-299)
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+
     const data = await response.json();
 
     // 3. Build the table rows
@@ -32,10 +38,10 @@ showBtn.addEventListener("click", async () => {
       tableBody.appendChild(row);
     });
 
-    statusMsg.textContent = "";
+    statusMsg.textContent = ""; // Clear message on success
   } catch (error) {
     statusMsg.textContent = "Error: Could not connect to the server.";
-    console.error(error);
+    console.error("Fetch error:", error);
   } finally {
     // 4. HIDE the Blur Overlay when finished
     loaderOverlay.style.display = "none";

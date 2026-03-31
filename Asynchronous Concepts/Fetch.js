@@ -1,22 +1,22 @@
 const showBtn = document.getElementById("showBtn");
 const tableBody = document.getElementById("tableBody");
 const statusMsg = document.getElementById("statusMsg");
-const spinner = document.getElementById("spinner"); // Get spinner element
+const loaderOverlay = document.getElementById("loader-overlay");
 
 const apiUrl = "http://universities.hipolabs.com/search?country=Cambodia";
 
 showBtn.addEventListener("click", async () => {
-  // 1. Clear existing data and SHOW spinner
+  // 1. Reset table and SHOW the Blur Overlay
   tableBody.innerHTML = "";
-  statusMsg.textContent = "Fetching data... please wait.";
-  spinner.style.display = "block";
+  statusMsg.textContent = "Loading universities...";
+  loaderOverlay.style.display = "flex";
 
   try {
-    // 2. Get data from API
+    // 2. Fetch data
     const response = await fetch(apiUrl);
     const data = await response.json();
 
-    // 3. Loop through data and create rows
+    // 3. Build the table rows
     data.forEach((uni, index) => {
       const row = document.createElement("tr");
 
@@ -27,27 +27,28 @@ showBtn.addEventListener("click", async () => {
                 <td>${uni.country}</td>
                 <td><button class="btn btn-on" onclick="toggleStatus(this)">Active</button></td>
                 <td><button class="btn btn-delete" onclick="this.closest('tr').remove()">Delete</button></td>
-                <td><button class="btn btn-edit" onclick="alert('Editing: ' + '${uni.name}')">Edit</button></td>
+                <td><button class="btn btn-edit" onclick="alert('Editing: ' + '${uni.name.replace(/'/g, "\\'")}')">Edit</button></td>
             `;
       tableBody.appendChild(row);
     });
 
     statusMsg.textContent = "";
   } catch (error) {
-    statusMsg.textContent = "Failed to load data. Check your connection.";
+    statusMsg.textContent = "Error: Could not connect to the server.";
     console.error(error);
   } finally {
-    // 4. ALWAYS HIDE spinner when done (success or error)
-    spinner.style.display = "none";
+    // 4. HIDE the Blur Overlay when finished
+    loaderOverlay.style.display = "none";
   }
 });
 
+// Toggle Function for Active/Inactive
 function toggleStatus(btn) {
   if (btn.textContent === "Active") {
     btn.textContent = "Inactive";
-    btn.style.backgroundColor = "#d32f2f";
+    btn.style.backgroundColor = "#d32f2f"; // Red
   } else {
     btn.textContent = "Active";
-    btn.style.backgroundColor = "#2d7a32";
+    btn.style.backgroundColor = "#2d7a32"; // Green
   }
 }

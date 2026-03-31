@@ -3,6 +3,7 @@ const tableBody = document.getElementById("tableBody");
 const statusMsg = document.getElementById("statusMsg");
 const loaderOverlay = document.getElementById("loader-overlay");
 
+// FIX: Changed http to https
 const apiUrl = "https://universities.hipolabs.com/search?country=Cambodia";
 
 showBtn.addEventListener("click", async () => {
@@ -15,7 +16,6 @@ showBtn.addEventListener("click", async () => {
     // 2. Fetch data
     const response = await fetch(apiUrl);
 
-    // Check if the response is okay (status 200-299)
     if (!response.ok) {
       throw new Error("Network response was not ok");
     }
@@ -38,7 +38,7 @@ showBtn.addEventListener("click", async () => {
       tableBody.appendChild(row);
     });
 
-    statusMsg.textContent = ""; // Clear message on success
+    statusMsg.textContent = "";
   } catch (error) {
     statusMsg.textContent = "Error: Could not connect to the server.";
     console.error("Fetch error:", error);

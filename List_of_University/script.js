@@ -3,7 +3,6 @@ const tableBody = document.getElementById("tableBody");
 const statusMsg = document.getElementById("statusMsg");
 const loaderOverlay = document.getElementById("loader-overlay");
 
-// FIX: Changed http to https
 const apiUrl = "http://universities.hipolabs.com/search?country=Cambodia";
 
 showBtn.addEventListener("click", async () => {

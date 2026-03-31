@@ -10,11 +10,13 @@ body {
   background: white;
   padding: 20px;
   border-radius: 8px;
+  text-align: center; /* Centers the spinner */
 }
 
 .header-section {
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   margin-bottom: 20px;
 }
 
@@ -22,6 +24,26 @@ h2 {
   margin-right: 20px;
   font-size: 24px;
   color: #333;
+}
+
+/* ADDED: Spinner Styling */
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #5c7cfa;
+  border-radius: 50%;
+  margin: 20px auto;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 #showBtn {
@@ -40,7 +62,7 @@ table {
 }
 
 th {
-  background-color: #1a1a2e; /* Dark navy from your image */
+  background-color: #1a1a2e;
   color: white;
   text-align: left;
   padding: 15px;
@@ -52,9 +74,9 @@ td {
   padding: 12px 15px;
   border-bottom: 1px solid #eee;
   font-size: 14px;
+  text-align: left;
 }
 
-/* Button Styles */
 .btn {
   padding: 6px 12px;
   border: none;
@@ -62,6 +84,7 @@ td {
   color: white;
   cursor: pointer;
   font-size: 12px;
+  min-width: 70px;
 }
 
 .btn-on {

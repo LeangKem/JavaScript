@@ -1,13 +1,15 @@
 const showBtn = document.getElementById("showBtn");
 const tableBody = document.getElementById("tableBody");
 const statusMsg = document.getElementById("statusMsg");
+const spinner = document.getElementById("spinner"); // Get spinner element
 
 const apiUrl = "http://universities.hipolabs.com/search?country=Cambodia";
 
 showBtn.addEventListener("click", async () => {
-  // 1. Clear existing data and show loading status
+  // 1. Clear existing data and SHOW spinner
   tableBody.innerHTML = "";
   statusMsg.textContent = "Fetching data... please wait.";
+  spinner.style.display = "block";
 
   try {
     // 2. Get data from API
@@ -30,19 +32,22 @@ showBtn.addEventListener("click", async () => {
       tableBody.appendChild(row);
     });
 
-    statusMsg.textContent = ""; // Hide loading message
+    statusMsg.textContent = "";
   } catch (error) {
     statusMsg.textContent = "Failed to load data. Check your connection.";
     console.error(error);
+  } finally {
+    // 4. ALWAYS HIDE spinner when done (success or error)
+    spinner.style.display = "none";
   }
 });
 
 function toggleStatus(btn) {
   if (btn.textContent === "Active") {
     btn.textContent = "Inactive";
-    btn.style.backgroundColor = "#d32f2f"; // Red for Inactive
+    btn.style.backgroundColor = "#d32f2f";
   } else {
     btn.textContent = "Active";
-    btn.style.backgroundColor = "#2d7a32"; // Green for Active
+    btn.style.backgroundColor = "#2d7a32";
   }
 }

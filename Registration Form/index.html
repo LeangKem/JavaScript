@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div class="card">
+      <h2>Create Account</h2>
+      <form id="registrationForm" novalidate>
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" placeholder="Enter username" />
+          <span class="error-text">Username is required</span>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" placeholder="email@example.com" />
+          <span class="error-text">Please enter a valid email</span>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="••••••••" />
+          <span class="error-text">Password must be at least 6 characters</span>
+        </div>
+
+        <div class="form-group">
+          <label for="confirmPassword">Confirm Password</label>
+          <input type="password" id="confirmPassword" placeholder="••••••••" />
+          <span class="error-text">Passwords do not match</span>
+        </div>
+
+        <button type="submit">Sign Up</button>
+      </form>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

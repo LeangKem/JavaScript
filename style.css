@@ -1,74 +1,92 @@
-/* style.css */
+/* General Reset and Body Layout */
 body {
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    background-color: #f8f9fa;
-    color: #212529;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 20px;
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #f8f9fa;
+  color: #212529;
+  margin: 0;
+  display: flex;
+  flex-direction: column; /* Stacks wrapper and footer vertically */
+  align-items: center; /* Centers content horizontally */
+  min-height: 100vh; /* Ensures body takes full screen height */
 }
 
+/* Content Wrapper */
 .main-wrapper {
-    width: 100%;
-    max-width: 900px;
-    text-align: center;
+  width: 100%;
+  max-width: 900px;
+  text-align: center;
+  padding: 40px 20px;
+  flex: 1; /* Pushes footer to the bottom */
 }
 
+/* Heading Style */
 h1 {
-    margin-bottom: 3rem;
-    font-weight: 700;
-    font-size: 2.5rem;
-    color: #1a1a1a;
-    letter-spacing: -1px;
+  margin-bottom: 3rem;
+  font-weight: 700;
+  font-size: 2.5rem;
+  color: #1a1a1a;
+  letter-spacing: -1px;
 }
 
 /* The Grid Layout */
 .button-container {
-    display: grid;
-    /* This creates 3 columns on desktop, 2 on tablets, 1 on mobile */
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
 }
 
+/* Button Styling */
 a.button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1.5rem 1rem;
-    background-color: #ffffff;
-    color: #007bff;
-    text-decoration: none;
-    border-radius: 12px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    text-align: center;
-    border: 2px solid #e9ecef;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 1rem;
+  background-color: #ffffff;
+  color: #007bff;
+  text-decoration: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: center;
+  border: 2px solid #e9ecef;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
-/* Modern Hover Effect */
+/* Hover Effects */
 a.button:hover {
-    background-color: #007bff;
-    color: white;
-    border-color: #007bff;
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 123, 255, 0.2);
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 123, 255, 0.2);
 }
 
 a.button:active {
-    transform: translateY(-2px);
+  transform: translateY(-2px);
+}
+
+/* Footer Styling */
+.site-footer {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 20px 0;
+  text-align: center;
+  border-top: 1px solid #ddd;
+}
+
+.site-footer p {
+  margin: 0;
+  color: #333;
+  font-weight: 500;
 }
 
 /* Mobile adjustments */
 @media (max-width: 600px) {
-    h1 {
-        font-size: 1.8rem;
-    }
-    .button-container {
-        grid-template-columns: 1fr;
-    }
+  h1 {
+    font-size: 1.8rem;
+  }
+  .button-container {
+    grid-template-columns: 1fr;
+  }
 }
